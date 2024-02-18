@@ -171,4 +171,12 @@ public interface ErrorCodeConstants {
     // ========== 站内信发送 1-002-028-000 ==========
     ErrorCode NOTIFY_SEND_TEMPLATE_PARAM_MISS = new ErrorCode(1_002_028_000, "模板参数({})缺失");
 
+    // ========== 仓库 1-002-029-000 ==========
+    ErrorCode WAREHOUSE_NOT_EXISTS = new ErrorCode(1_002_029_000, "仓库不存在");
+
+    // ========== 供应商/客户 1-002-030-000 ==========
+    ErrorCode CLIENT_NOT_EXISTS = new ErrorCode(1_002_030_000, "供应商/客户不存在");
+
+    // ========== 产品 1-002-031-000 ==========
+    ErrorCode PRODUCT_NOT_EXISTS = new ErrorCode(1_002_031_000, "产品不存在");
 }

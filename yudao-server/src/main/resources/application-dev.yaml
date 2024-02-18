@@ -43,25 +43,25 @@ spring:
       primary: master
       datasource:
         master:
-          name: ruoyi-vue-pro
-          url: jdbc:mysql://400-infra.server.iocoder.cn:3306/${spring.datasource.dynamic.datasource.master.name}?useSSL=false&serverTimezone=CTT&allowPublicKeyRetrieval=true
-          driver-class-name: com.mysql.jdbc.Driver
-          username: root
-          password: 3WLiVUBEwTbvAfsh
+        name: llm-system
+        url: jdbc:mysql://localhost:3306/${spring.datasource.dynamic.datasource.master.name}?useSSL=false&serverTimezone=CTT&allowPublicKeyRetrieval=true
+        driver-class-name: com.mysql.jdbc.Driver
+        username: root
+        password: yxg123456
         slave: # 模拟从库，可根据自己需要修改 # 模拟从库，可根据自己需要修改
-          name: ruoyi-vue-pro
-          url: jdbc:mysql://400-infra.server.iocoder.cn:3306/${spring.datasource.dynamic.datasource.slave.name}?useSSL=false&serverTimezone=CTT&allowPublicKeyRetrieval=true
+          name: llm-system
+          url: jdbc:mysql://localhost:3306/${spring.datasource.dynamic.datasource.slave.name}?useSSL=false&serverTimezone=CTT&allowPublicKeyRetrieval=true
           driver-class-name: com.mysql.jdbc.Driver
           username: root
-          password: 3WLiVUBEwTbvAfsh
+          password: yxg123456
 
   # Redis 配置。Redisson 默认的配置足够使用，一般不需要进行调优
-  redis:
-    host: 400-infra.server.iocoder.cn # 地址
-    port: 6379 # 端口
-    database: 1 # 数据库索引
-#    password: 123456 # 密码，建议生产环境开启
-
+  data:
+    redis:
+      host: localhost # 地址
+      port: 6379 # 端口
+      database: 1 # 数据库索引
+#      password: yxg123456 # 密码，建议生产环境开启
 --- #################### 定时任务相关配置 ####################
 
 # Quartz 配置项，对应 QuartzProperties 配置类
