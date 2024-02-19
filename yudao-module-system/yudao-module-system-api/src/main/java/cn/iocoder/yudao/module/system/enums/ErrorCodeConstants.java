@@ -178,5 +178,11 @@ public interface ErrorCodeConstants {
     ErrorCode CLIENT_NOT_EXISTS = new ErrorCode(1_002_030_000, "供应商/客户不存在");
 
     // ========== 产品 1-002-031-000 ==========
-    ErrorCode PRODUCT_NOT_EXISTS = new ErrorCode(1_002_031_000, "产品不存在");
+    ErrorCode PRODUCTS_NOT_EXISTS = new ErrorCode(1_002_031_000, "产品不存在");
+
+    // ========== 订单 1-002-032-000 ==========
+    ErrorCode ORDER_NOT_EXISTS = new ErrorCode(1_002_032_000, "订单不存在");
+
+    // ========== 订单项 1-002-033-000 ==========
+    ErrorCode ORDER_ITEM_NOT_EXISTS = new ErrorCode(1_002_033_000, "订单项不存在");
 }

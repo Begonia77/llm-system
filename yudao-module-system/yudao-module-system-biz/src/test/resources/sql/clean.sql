@@ -35,4 +35,6 @@ DELETE FROM "system_notify_template";
 DELETE FROM "system_notify_message";
 DELETE FROM "system_warehouse";
 DELETE FROM "system_client";
-DELETE FROM "system_product";
+DELETE FROM "system_products";
+DELETE FROM "system_order";
+DELETE FROM "system_order_item";
