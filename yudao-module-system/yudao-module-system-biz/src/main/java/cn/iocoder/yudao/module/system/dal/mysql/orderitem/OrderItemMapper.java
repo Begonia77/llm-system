@@ -19,10 +19,8 @@ public interface OrderItemMapper extends BaseMapperX<OrderItemDO> {
 
     default PageResult<OrderItemDO> selectPage(OrderItemPageReqVO reqVO) {
         return selectPage(reqVO, new LambdaQueryWrapperX<OrderItemDO>()
-                .eqIfPresent(OrderItemDO::getRemarks, reqVO.getRemarks())
-                .eqIfPresent(OrderItemDO::getStatus, reqVO.getStatus())
-                .betweenIfPresent(OrderItemDO::getCreateTime, reqVO.getCreateTime())
-                .orderByDesc(OrderItemDO::getId));
+                .eq(OrderItemDO::getOrderId, reqVO.getOrderId())
+                .orderByAsc(OrderItemDO::getId));
     }
 
 }

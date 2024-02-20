@@ -21,8 +21,8 @@ public class WarehousePageReqVO extends PageParam {
     @Schema(description = "仓库类型", example = "1")
     private String type;
 
-    @Schema(description = "仓库负责人", example = "张三")
-    private String userName;
+    @Schema(description = "仓库负责人id", example = "11")
+    private Long userId;
 
     @Schema(description = "库存上限", example = "1000")
     private Integer maxInventory;

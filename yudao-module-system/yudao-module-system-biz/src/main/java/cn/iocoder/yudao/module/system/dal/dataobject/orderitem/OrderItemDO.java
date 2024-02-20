@@ -34,10 +34,6 @@ public class OrderItemDO extends BaseDO {
      */
     private Long productId;
     /**
-     * 产品名称
-     */
-    private String productName;
-    /**
      * 订单id
      */
     private Long orderId;
@@ -49,10 +45,6 @@ public class OrderItemDO extends BaseDO {
      * 价格
      */
     private BigDecimal price;
-    /**
-     * 单项总金额
-     */
-    private BigDecimal totalAmount;
     /**
      * 备注
      */

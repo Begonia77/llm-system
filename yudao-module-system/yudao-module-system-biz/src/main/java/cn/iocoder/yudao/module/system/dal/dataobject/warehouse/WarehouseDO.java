@@ -46,10 +46,6 @@ public class WarehouseDO extends BaseDO {
      */
     private Long userId;
     /**
-     * 仓库负责人
-     */
-    private String userName;
-    /**
      * 库存上限
      */
     private Integer maxInventory;

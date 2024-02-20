@@ -21,7 +21,6 @@ public interface WarehouseMapper extends BaseMapperX<WarehouseDO> {
         return selectPage(reqVO, new LambdaQueryWrapperX<WarehouseDO>()
                 .likeIfPresent(WarehouseDO::getName, reqVO.getName())
                 .eqIfPresent(WarehouseDO::getType, reqVO.getType())
-                .likeIfPresent(WarehouseDO::getUserName, reqVO.getUserName())
                 .eqIfPresent(WarehouseDO::getMaxInventory, reqVO.getMaxInventory())
                 .eqIfPresent(WarehouseDO::getStatus, reqVO.getStatus())
                 .betweenIfPresent(WarehouseDO::getCreateTime, reqVO.getCreateTime())

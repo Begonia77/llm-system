@@ -2,9 +2,6 @@ package cn.iocoder.yudao.module.system.controller.admin.warehouse.vo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
-import java.util.*;
-import java.util.*;
-import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDateTime;
 import com.alibaba.excel.annotation.*;
 import cn.iocoder.yudao.framework.excel.core.annotations.DictFormat;
@@ -32,9 +29,9 @@ public class WarehouseRespVO {
     @ExcelProperty("仓库地址")
     private String address;
 
-    @Schema(description = "仓库负责人", requiredMode = Schema.RequiredMode.REQUIRED, example = "张三")
-    @ExcelProperty("仓库负责人")
-    private String userName;
+    @Schema(description = "仓库负责人id", requiredMode = Schema.RequiredMode.REQUIRED, example = "22")
+    @ExcelProperty("仓库负责人id")
+    private Long userId;
 
     @Schema(description = "库存上限", requiredMode = Schema.RequiredMode.REQUIRED, example = "1000")
     @ExcelProperty("库存上限")

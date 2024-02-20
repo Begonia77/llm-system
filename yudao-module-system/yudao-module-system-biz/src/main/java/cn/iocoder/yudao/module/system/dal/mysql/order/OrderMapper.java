@@ -20,9 +20,7 @@ public interface OrderMapper extends BaseMapperX<OrderDO> {
     default PageResult<OrderDO> selectPage(OrderPageReqVO reqVO) {
         return selectPage(reqVO, new LambdaQueryWrapperX<OrderDO>()
                 .eqIfPresent(OrderDO::getOrderNumber, reqVO.getOrderNumber())
-                .likeIfPresent(OrderDO::getWarehouseName, reqVO.getWarehouseName())
                 .eqIfPresent(OrderDO::getType, reqVO.getType())
-                .likeIfPresent(OrderDO::getClientName, reqVO.getClientName())
                 .eqIfPresent(OrderDO::getRemarks, reqVO.getRemarks())
                 .eqIfPresent(OrderDO::getStatus, reqVO.getStatus())
                 .betweenIfPresent(OrderDO::getCreateTime, reqVO.getCreateTime())

@@ -17,16 +17,16 @@ import static cn.iocoder.yudao.framework.common.util.date.DateUtils.FORMAT_YEAR_
 public class OrderPageReqVO extends PageParam {
 
     @Schema(description = "订单单号")
-    private String orderNumber;
+    private Long orderNumber;
 
-    @Schema(description = "仓库名称", example = "张三")
-    private String warehouseName;
+    @Schema(description = "仓库id", example = "张三")
+    private Long warehouseId;
 
     @Schema(description = "类型，采购/销售", example = "1")
     private String type;
 
-    @Schema(description = "客户/供应商名称", example = "李四")
-    private String clientName;
+    @Schema(description = "客户/供应商id", example = "李四")
+    private Long clientId;
 
     @Schema(description = "备注")
     private String remarks;

@@ -14,17 +14,17 @@ public class OrderItemSaveReqVO {
     @Schema(description = "订单项id", requiredMode = Schema.RequiredMode.REQUIRED, example = "29586")
     private Long id;
 
-    @Schema(description = "产品名称", example = "张三")
-    private String productName;
+    @Schema(description = "产品id", example = "12")
+    private Long productId;
+
+    @Schema(description = "订单id", example = "12")
+    private Long orderId;
 
     @Schema(description = "数量")
     private Integer quantity;
 
     @Schema(description = "价格", example = "14343")
     private BigDecimal price;
-
-    @Schema(description = "单项总金额")
-    private BigDecimal totalAmount;
 
     @Schema(description = "备注")
     private String remarks;

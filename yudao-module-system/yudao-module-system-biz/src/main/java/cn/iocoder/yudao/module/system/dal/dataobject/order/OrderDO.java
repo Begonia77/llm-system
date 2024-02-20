@@ -31,15 +31,11 @@ public class OrderDO extends BaseDO {
     /**
      * 订单单号
      */
-    private String orderNumber;
+    private Long orderNumber;
     /**
      * 仓库id
      */
     private Long warehouseId;
-    /**
-     * 仓库名称
-     */
-    private String warehouseName;
     /**
      * 类型，采购/销售
      *
@@ -51,21 +47,9 @@ public class OrderDO extends BaseDO {
      */
     private Long clientId;
     /**
-     * 客户/供应商名称
-     */
-    private String clientName;
-    /**
      * 业务员id
      */
     private Long userId;
-    /**
-     * 总金额
-     */
-    private BigDecimal totalAmount;
-    /**
-     * 订单项数量
-     */
-    private Integer itemQuantity;
     /**
      * 备注
      */

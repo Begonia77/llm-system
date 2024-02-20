@@ -24,9 +24,9 @@ public class WarehouseSaveReqVO {
     @Schema(description = "仓库地址")
     private String address;
 
-    @Schema(description = "仓库负责人", requiredMode = Schema.RequiredMode.REQUIRED, example = "张三")
-    @NotEmpty(message = "仓库负责人不能为空")
-    private String userName;
+    @Schema(description = "仓库负责人id", requiredMode = Schema.RequiredMode.REQUIRED, example = "22")
+    @NotEmpty(message = "仓库负责人id不能为空")
+    private Long userId;
 
     @Schema(description = "库存上限", requiredMode = Schema.RequiredMode.REQUIRED, example = "1000")
     @NotNull(message = "库存上限不能为空")

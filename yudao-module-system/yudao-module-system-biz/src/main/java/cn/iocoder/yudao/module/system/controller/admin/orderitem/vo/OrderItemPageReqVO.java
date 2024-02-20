@@ -16,6 +16,9 @@ import static cn.iocoder.yudao.framework.common.util.date.DateUtils.FORMAT_YEAR_
 @ToString(callSuper = true)
 public class OrderItemPageReqVO extends PageParam {
 
+    @Schema(description = "订单id")
+    private Number orderId;
+
     @Schema(description = "备注")
     private String remarks;
 

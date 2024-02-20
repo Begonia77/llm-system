@@ -2,10 +2,7 @@ package cn.iocoder.yudao.module.system.controller.admin.orderitem.vo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
-import java.util.*;
-import java.util.*;
 import java.math.BigDecimal;
-import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDateTime;
 import com.alibaba.excel.annotation.*;
 
@@ -22,10 +19,6 @@ public class OrderItemRespVO {
     @ExcelProperty("产品id")
     private Long productId;
 
-    @Schema(description = "产品名称", example = "张三")
-    @ExcelProperty("产品名称")
-    private String productName;
-
     @Schema(description = "订单id", example = "27053")
     @ExcelProperty("订单id")
     private Long orderId;
@@ -37,10 +30,6 @@ public class OrderItemRespVO {
     @Schema(description = "价格", example = "14343")
     @ExcelProperty("价格")
     private BigDecimal price;
-
-    @Schema(description = "单项总金额")
-    @ExcelProperty("单项总金额")
-    private BigDecimal totalAmount;
 
     @Schema(description = "备注")
     @ExcelProperty("备注")
