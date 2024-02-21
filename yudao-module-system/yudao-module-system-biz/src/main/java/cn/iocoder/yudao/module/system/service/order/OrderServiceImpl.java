@@ -39,6 +39,9 @@ public class OrderServiceImpl implements OrderService {
         // 插入
         OrderDO order = BeanUtils.toBean(createReqVO, OrderDO.class);
         orderMapper.insert(order);
+        order.setOrderNumber(order.getId() * 6 + 10000000);
+        orderMapper.updateById(order);
+
         for (OrderItemSaveReqVO orderItemDO : createReqVO.getOrderItems()) {
             // 设置所属订单id
             orderItemDO.setOrderId(order.getId());

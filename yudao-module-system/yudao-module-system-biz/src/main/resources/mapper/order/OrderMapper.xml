@@ -8,5 +8,70 @@
         代码生成器暂时只生成 Mapper XML 文件本身，更多推荐 MybatisX 快速开发插件来生成查询。
         文档可见：https://www.iocoder.cn/MyBatis/x-plugins/
      -->
+    <resultMap id="orderMap" type="cn.iocoder.yudao.module.system.dal.dataobject.order.OrderDO">
+        <id column="id" property="id" />
+        <result column="order_number" property="orderNumber" />
+        <result column="warehouse_id" property="warehouseId" />
+        <result column="warehouse_name" property="warehouseName" />
+        <result column="type" property="type" />
+        <result column="client_id" property="clientId" />
+        <result column="client_name" property="clientName" />
+        <result column="user_id" property="userId" />
+        <result column="user_nickname" property="userNickname" />
+        <result column="remarks" property="remarks" />
+        <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <select id="selectOrderPage" resultMap="orderMap">
+        select
+        so.id,
+        so.order_number,
+        so.warehouse_id,
+        sw.name as warehouse_name,
+        so.type,
+        so.client_id,
+        sc.name as client_name,
+        so.user_id,
+        su.nickname as user_nickname,
+        so.remarks,
+        so.status,
+        so.create_time
+        from system_order as so
+        left join system_client as sc on so.client_id = sc.id
+        left join system_warehouse as sw on so.warehouse_id = sw.id
+        left join system_users as su on so.user_id = su.id
+        WHERE so.deleted = 0
+        <if test="req.orderNumber != null">
+            AND so.order_number = #{req.orderNumber}
+        </if>
+        <if test="req.warehouseId != null">
+            AND so.warehouse_id = #{req.warehouseId}
+        </if>
+        <if test="req.type != null">
+            AND so.type = #{req.type}
+        </if>
+        <if test="req.clientId != null">
+            AND so.client_id = #{req.clientId}
+        </if>
+        <if test="req.remarks != null">
+            AND so.remarks like concat('%', #{req.remarks}, '%')
+        </if>
+        <if test="req.status != null">
+            AND so.status = #{req.status}
+        </if>
+        <if test="req.createTime != null">
+            <if test="req.createTime.length == 2 and req.createTime[0] != null and req.createTime[1] != null">
+                AND so.create_time BETWEEN #{req.createTime[0]} AND #1
+            </if>
+            <if test="req.createTime.length == 1 and req.createTime[0] != null">
+                AND so.create_time &gt;= #{req.createTime[0]}
+            </if>
+            <if test="req.createTime.length == 1 and req.createTime[1] != null">
+                AND so.create_time &lt;= #{req.createTime[1]}
+            </if>
+        </if>
+        order by so.id desc
+    </select>
 
 </mapper>

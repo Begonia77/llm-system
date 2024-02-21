@@ -4,6 +4,7 @@ import java.util.*;
 import javax.validation.*;
 import cn.iocoder.yudao.module.system.controller.admin.products.vo.*;
 import cn.iocoder.yudao.module.system.dal.dataobject.products.ProductsDO;
+import cn.iocoder.yudao.module.system.dal.dataobject.warehouse.WarehouseDO;
 import cn.iocoder.yudao.framework.common.pojo.PageResult;
 import cn.iocoder.yudao.framework.common.pojo.PageParam;
 
@@ -51,5 +52,12 @@ public interface ProductsService {
      * @return 产品分页
      */
     PageResult<ProductsDO> getProductsPage(ProductsPageReqVO pageReqVO);
+
+    /**
+     * 获得所有产品列表
+     *
+     * @return 产品列表
+     */
+    List<ProductsDO> getAllProductsList();
 
 }

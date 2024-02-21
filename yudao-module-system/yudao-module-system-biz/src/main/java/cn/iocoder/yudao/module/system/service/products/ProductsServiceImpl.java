@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.*;
 import cn.iocoder.yudao.module.system.controller.admin.products.vo.*;
 import cn.iocoder.yudao.module.system.dal.dataobject.products.ProductsDO;
+import cn.iocoder.yudao.module.system.dal.dataobject.warehouse.WarehouseDO;
 import cn.iocoder.yudao.framework.common.pojo.PageResult;
 import cn.iocoder.yudao.framework.common.pojo.PageParam;
 import cn.iocoder.yudao.framework.common.util.object.BeanUtils;
@@ -69,6 +70,11 @@ public class ProductsServiceImpl implements ProductsService {
     @Override
     public PageResult<ProductsDO> getProductsPage(ProductsPageReqVO pageReqVO) {
         return productsMapper.selectPage(pageReqVO);
+    }
+
+    @Override
+    public List<ProductsDO> getAllProductsList() {
+        return productsMapper.selectList();
     }
 
 }

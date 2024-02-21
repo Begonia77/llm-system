@@ -4,6 +4,7 @@ import java.util.*;
 import javax.validation.*;
 import cn.iocoder.yudao.module.system.controller.admin.client.vo.*;
 import cn.iocoder.yudao.module.system.dal.dataobject.client.ClientDO;
+import cn.iocoder.yudao.module.system.dal.dataobject.warehouse.WarehouseDO;
 import cn.iocoder.yudao.framework.common.pojo.PageResult;
 import cn.iocoder.yudao.framework.common.pojo.PageParam;
 
@@ -51,5 +52,12 @@ public interface ClientService {
      * @return 供应商/客户分页
      */
     PageResult<ClientDO> getClientPage(ClientPageReqVO pageReqVO);
+
+    /**
+     * 获得所有供应商/客户列表
+     *
+     * @return 供应商/客户列表
+     */
+    List<ClientDO> getAllClientList();
 
 }

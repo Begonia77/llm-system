@@ -16,6 +16,7 @@ import java.io.IOException;
 
 import cn.iocoder.yudao.framework.common.pojo.PageParam;
 import cn.iocoder.yudao.framework.common.pojo.PageResult;
+import cn.iocoder.yudao.framework.common.enums.CommonStatusEnum;
 import cn.iocoder.yudao.framework.common.pojo.CommonResult;
 import cn.iocoder.yudao.framework.common.util.object.BeanUtils;
 import static cn.iocoder.yudao.framework.common.pojo.CommonResult.success;
@@ -25,7 +26,11 @@ import cn.iocoder.yudao.framework.excel.core.util.ExcelUtils;
 import cn.iocoder.yudao.framework.operatelog.core.annotations.OperateLog;
 import static cn.iocoder.yudao.framework.operatelog.core.enums.OperateTypeEnum.*;
 
+import cn.iocoder.yudao.module.system.controller.admin.user.vo.user.UserSimpleRespVO;
 import cn.iocoder.yudao.module.system.controller.admin.warehouse.vo.*;
+import cn.iocoder.yudao.module.system.convert.user.UserConvert;
+import cn.iocoder.yudao.module.system.dal.dataobject.dept.DeptDO;
+import cn.iocoder.yudao.module.system.dal.dataobject.user.AdminUserDO;
 import cn.iocoder.yudao.module.system.dal.dataobject.warehouse.WarehouseDO;
 import cn.iocoder.yudao.module.system.service.warehouse.WarehouseService;
 
@@ -90,6 +95,13 @@ public class WarehouseController {
         // 导出 Excel
         ExcelUtils.write(response, "仓库.xls", "数据", WarehouseRespVO.class,
                         BeanUtils.toBean(list, WarehouseRespVO.class));
+    }
+
+    @GetMapping({"/list-all-simple", "/simple-list"})
+    @Operation(summary = "获取仓库精简信息列表", description = "只包含被开启的仓库，主要用于前端的下拉选项")
+    public CommonResult<List<WarehouseSimpleRespVO>> getSimpleWarehouseList() {
+        List<WarehouseDO> list = warehouseService.getAllWarehouseList();
+        return success(BeanUtils.toBean(list, WarehouseSimpleRespVO.class));
     }
 
 }

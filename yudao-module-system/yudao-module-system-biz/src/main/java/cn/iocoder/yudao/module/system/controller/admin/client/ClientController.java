@@ -26,6 +26,7 @@ import cn.iocoder.yudao.framework.operatelog.core.annotations.OperateLog;
 import static cn.iocoder.yudao.framework.operatelog.core.enums.OperateTypeEnum.*;
 
 import cn.iocoder.yudao.module.system.controller.admin.client.vo.*;
+import cn.iocoder.yudao.module.system.controller.admin.client.vo.ClientSimpleRespVO;
 import cn.iocoder.yudao.module.system.dal.dataobject.client.ClientDO;
 import cn.iocoder.yudao.module.system.service.client.ClientService;
 
@@ -90,6 +91,13 @@ public class ClientController {
         // 导出 Excel
         ExcelUtils.write(response, "供应商/客户.xls", "数据", ClientRespVO.class,
                         BeanUtils.toBean(list, ClientRespVO.class));
+    }
+
+    @GetMapping({"/list-all-simple", "/simple-list"})
+    @Operation(summary = "获取供应商/客户精简信息列表", description = "只包含被开启的用户，主要用于前端的下拉选项")
+    public CommonResult<List<ClientSimpleRespVO>> getSimpleWarehouseList() {
+        List<ClientDO> list = clientService.getAllClientList();
+        return success(BeanUtils.toBean(list, ClientSimpleRespVO.class));
     }
 
 }

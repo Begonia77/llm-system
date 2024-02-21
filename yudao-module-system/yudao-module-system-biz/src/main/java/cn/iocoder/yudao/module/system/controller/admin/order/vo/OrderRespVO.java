@@ -28,6 +28,10 @@ public class OrderRespVO {
     @ExcelProperty("仓库id")
     private Long warehouseId;
 
+    @Schema(description = "仓库名称")
+    @ExcelProperty("仓库名称")
+    private String warehouseName;
+
     @Schema(description = "类型，采购/销售", requiredMode = Schema.RequiredMode.REQUIRED, example = "1")
     @ExcelProperty(value = "类型", converter = DictConvert.class)
     @DictFormat("order_type") // TODO 代码优化：建议设置到对应的 DictTypeConstants 枚举类中
@@ -37,9 +41,17 @@ public class OrderRespVO {
     @ExcelProperty("供应商/客户id")
     private Long clientId;
 
+    @Schema(description = "供应商/客户名称")
+    @ExcelProperty("供应商/客户名称")
+    private String clientName;
+
     @Schema(description = "业务员id", example = "4146")
     @ExcelProperty("业务员id")
     private Long userId;
+
+    @Schema(description = "业务员名称")
+    @ExcelProperty("业务员名称")
+    private String userNickname;
 
     @Schema(description = "备注")
     @ExcelProperty("备注")

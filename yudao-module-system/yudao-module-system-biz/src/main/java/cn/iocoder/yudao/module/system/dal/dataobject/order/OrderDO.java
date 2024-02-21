@@ -36,6 +36,13 @@ public class OrderDO extends BaseDO {
      * 仓库id
      */
     private Long warehouseId;
+
+    /**
+     * 仓库名称
+     */
+    @TableField(exist = false)
+    private String warehouseName;
+
     /**
      * 类型，采购/销售
      *
@@ -47,9 +54,21 @@ public class OrderDO extends BaseDO {
      */
     private Long clientId;
     /**
+     * 供应商/客户名称
+     */
+    @TableField(exist = false)
+    private String clientName;
+
+    /**
      * 业务员id
      */
     private Long userId;
+    /**
+     * 业务员名称
+     */
+    @TableField(exist = false)
+    private String userNickname;
+
     /**
      * 备注
      */

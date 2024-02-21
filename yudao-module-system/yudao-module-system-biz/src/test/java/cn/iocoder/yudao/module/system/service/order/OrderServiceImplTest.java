@@ -110,15 +110,12 @@ public class OrderServiceImplTest extends BaseDbUnitTest {
     public void testGetOrderPage() {
        // mock 数据
        OrderDO dbOrder = randomPojo(OrderDO.class, o -> { // 等会查询到
-           o.setOrderNumber(null);
            o.setType(null);
            o.setRemarks(null);
            o.setStatus(null);
            o.setCreateTime(null);
        });
        orderMapper.insert(dbOrder);
-       // 测试 orderNumber 不匹配
-       orderMapper.insert(cloneIgnoreId(dbOrder, o -> o.setOrderNumber(null)));
        // 测试 type 不匹配
        orderMapper.insert(cloneIgnoreId(dbOrder, o -> o.setType(null)));
        // 测试 remarks 不匹配
@@ -129,7 +126,6 @@ public class OrderServiceImplTest extends BaseDbUnitTest {
        orderMapper.insert(cloneIgnoreId(dbOrder, o -> o.setCreateTime(null)));
        // 准备参数
        OrderPageReqVO reqVO = new OrderPageReqVO();
-       reqVO.setOrderNumber(null);
        reqVO.setType(null);
        reqVO.setRemarks(null);
        reqVO.setStatus(null);

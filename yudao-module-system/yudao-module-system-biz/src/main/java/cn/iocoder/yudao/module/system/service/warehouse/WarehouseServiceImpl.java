@@ -71,4 +71,9 @@ public class WarehouseServiceImpl implements WarehouseService {
         return warehouseMapper.selectPage(pageReqVO);
     }
 
+    @Override
+    public List<WarehouseDO> getAllWarehouseList() {
+        return warehouseMapper.selectList();
+    }
+
 }

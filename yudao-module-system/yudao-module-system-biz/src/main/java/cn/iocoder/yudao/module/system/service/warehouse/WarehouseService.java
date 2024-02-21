@@ -52,4 +52,11 @@ public interface WarehouseService {
      */
     PageResult<WarehouseDO> getWarehousePage(WarehousePageReqVO pageReqVO);
 
+    /**
+     * 获得所有仓库列表
+     *
+     * @return 仓库列表
+     */
+    List<WarehouseDO> getAllWarehouseList();
+
 }

@@ -8,7 +8,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Operation;
 
-import javax.validation.constraints.*;
 import javax.validation.*;
 import javax.servlet.http.*;
 import java.util.*;
@@ -26,7 +25,9 @@ import cn.iocoder.yudao.framework.operatelog.core.annotations.OperateLog;
 import static cn.iocoder.yudao.framework.operatelog.core.enums.OperateTypeEnum.*;
 
 import cn.iocoder.yudao.module.system.controller.admin.products.vo.*;
+import cn.iocoder.yudao.module.system.controller.admin.warehouse.vo.WarehouseSimpleRespVO;
 import cn.iocoder.yudao.module.system.dal.dataobject.products.ProductsDO;
+import cn.iocoder.yudao.module.system.dal.dataobject.warehouse.WarehouseDO;
 import cn.iocoder.yudao.module.system.service.products.ProductsService;
 
 @Tag(name = "管理后台 - 产品")
@@ -90,6 +91,13 @@ public class ProductsController {
         // 导出 Excel
         ExcelUtils.write(response, "产品.xls", "数据", ProductsRespVO.class,
                         BeanUtils.toBean(list, ProductsRespVO.class));
+    }
+
+    @GetMapping({"/list-all-simple", "/simple-list"})
+    @Operation(summary = "获取产品精简信息列表", description = "只包含被开启的仓库，主要用于前端的下拉选项")
+    public CommonResult<List<ProductsSimpleRespVO>> getSimpleProductsList() {
+        List<ProductsDO> list = productsService.getAllProductsList();
+        return success(BeanUtils.toBean(list, ProductsSimpleRespVO.class));
     }
 
 }
