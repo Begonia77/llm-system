@@ -18,6 +18,8 @@
         <result column="client_name" property="clientName" />
         <result column="user_id" property="userId" />
         <result column="user_nickname" property="userNickname" />
+        <result column="total_quantity" property="totalQuantity" />
+        <result column="total_amount" property="totalAmount" />
         <result column="remarks" property="remarks" />
         <result column="status" property="status" />
         <result column="create_time" property="createTime" />
@@ -34,6 +36,8 @@
         sc.name as client_name,
         so.user_id,
         su.nickname as user_nickname,
+        (select count(*) from system_order_item soi where soi.order_id = so.id) as total_quantity,
+        (select sum(price * quantity) from system_order_item soi where soi.order_id = so.id) as total_amount,
         so.remarks,
         so.status,
         so.create_time

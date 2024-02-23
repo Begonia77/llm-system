@@ -4,14 +4,11 @@ import cn.iocoder.yudao.module.system.controller.admin.orderitem.vo.OrderItemSav
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.*;
 import cn.iocoder.yudao.module.system.controller.admin.order.vo.*;
 import cn.iocoder.yudao.module.system.dal.dataobject.order.OrderDO;
 import cn.iocoder.yudao.module.system.dal.dataobject.orderitem.OrderItemDO;
 import cn.iocoder.yudao.framework.common.pojo.PageResult;
-import cn.iocoder.yudao.framework.common.pojo.PageParam;
 import cn.iocoder.yudao.framework.common.util.object.BeanUtils;
 
 import cn.iocoder.yudao.module.system.dal.mysql.order.OrderMapper;
@@ -39,7 +36,7 @@ public class OrderServiceImpl implements OrderService {
         // 插入
         OrderDO order = BeanUtils.toBean(createReqVO, OrderDO.class);
         orderMapper.insert(order);
-        order.setOrderNumber(order.getId() * 6 + 10000000);
+        order.setOrderNumber(order.getId() * 36 + 10000000);
         orderMapper.updateById(order);
 
         for (OrderItemSaveReqVO orderItemDO : createReqVO.getOrderItems()) {

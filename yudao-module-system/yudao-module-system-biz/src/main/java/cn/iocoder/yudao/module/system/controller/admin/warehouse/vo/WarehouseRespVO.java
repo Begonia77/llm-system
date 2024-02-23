@@ -33,6 +33,10 @@ public class WarehouseRespVO {
     @ExcelProperty("仓库负责人id")
     private Long userId;
 
+    @Schema(description = "仓库负责人名称")
+    @ExcelProperty("仓库负责人名称")
+    private String userNickname;
+
     @Schema(description = "库存上限", requiredMode = Schema.RequiredMode.REQUIRED, example = "1000")
     @ExcelProperty("库存上限")
     private Integer maxInventory;

@@ -8,5 +8,44 @@
         代码生成器暂时只生成 Mapper XML 文件本身，更多推荐 MybatisX 快速开发插件来生成查询。
         文档可见：https://www.iocoder.cn/MyBatis/x-plugins/
      -->
+    <resultMap id="warehouseMap" type="cn.iocoder.yudao.module.system.dal.dataobject.warehouse.WarehouseDO">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="type" property="type" />
+        <result column="address" property="address" />
+        <result column="user_id" property="userId" />
+        <result column="user_nickname" property="userNickname" />
+        <result column="max_inventory" property="maxInventory" />
+        <result column="remarks" property="remarks" />
+        <result column="status" property="status" />
+    </resultMap>
+
+    <select id="selectWarehousePage" resultMap="warehouseMap">
+        select
+        sw.id,
+        sw.name,
+        sw.type,
+        sw.address,
+        sw.user_id,
+        su.nickname as user_nickname,
+        sw.max_inventory,
+        sw.remarks,
+        sw.status
+        from system_warehouse as sw
+        left join system_users as su on sw.user_id = su.id
+        WHERE sw.deleted = 0
+        <if test="req.name != null">
+            AND sw.name like concat('%', #{req.name}, '%')
+        </if>
+        <if test="req.type != null">
+            AND sw.type = #{req.type}
+        </if>
+        <if test="req.userId != null">
+            AND sw.user_id = #{req.userId}
+        </if>
+        <if test="req.status != null">
+            AND sw.status = #{req.status}
+        </if>
+    </select>
 
 </mapper>

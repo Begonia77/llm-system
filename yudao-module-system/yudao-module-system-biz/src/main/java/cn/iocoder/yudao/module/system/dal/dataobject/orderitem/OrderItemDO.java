@@ -34,6 +34,11 @@ public class OrderItemDO extends BaseDO {
      */
     private Long productId;
     /**
+     * 产品名
+     */
+    @TableField(exist = false)
+    private String productName;
+    /**
      * 订单id
      */
     private Long orderId;
@@ -45,6 +50,11 @@ public class OrderItemDO extends BaseDO {
      * 价格
      */
     private BigDecimal price;
+    /**
+     * 总金额
+     */
+    @TableField(exist = false)
+    private BigDecimal totalAmount;
     /**
      * 备注
      */

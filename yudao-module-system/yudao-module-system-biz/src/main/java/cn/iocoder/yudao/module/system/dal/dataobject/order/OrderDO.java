@@ -70,6 +70,17 @@ public class OrderDO extends BaseDO {
     private String userNickname;
 
     /**
+     * 购买总数
+     */
+    @TableField(exist = false)
+    private Integer totalQuantity;
+    /**
+     * 总金额
+     */
+    @TableField(exist = false)
+    private BigDecimal totalAmount;
+
+    /**
      * 备注
      */
     private String remarks;

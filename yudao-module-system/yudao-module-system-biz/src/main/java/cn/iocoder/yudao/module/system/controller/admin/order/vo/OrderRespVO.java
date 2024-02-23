@@ -53,6 +53,14 @@ public class OrderRespVO {
     @ExcelProperty("业务员名称")
     private String userNickname;
 
+    @Schema(description = "购买总数")
+    @ExcelProperty("购买总数")
+    private Integer totalQuantity;
+
+    @Schema(description = "总金额")
+    @ExcelProperty("总金额")
+    private BigDecimal totalAmount;
+
     @Schema(description = "备注")
     @ExcelProperty("备注")
     private String remarks;
