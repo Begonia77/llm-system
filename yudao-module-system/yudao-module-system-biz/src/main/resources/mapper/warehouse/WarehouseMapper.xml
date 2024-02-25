@@ -18,6 +18,7 @@
         <result column="max_inventory" property="maxInventory" />
         <result column="remarks" property="remarks" />
         <result column="status" property="status" />
+        <result column="create_time" property="createTime" />
     </resultMap>
 
     <select id="selectWarehousePage" resultMap="warehouseMap">
@@ -30,7 +31,8 @@
         su.nickname as user_nickname,
         sw.max_inventory,
         sw.remarks,
-        sw.status
+        sw.status,
+        sw.create_time
         from system_warehouse as sw
         left join system_users as su on sw.user_id = su.id
         WHERE sw.deleted = 0
@@ -45,6 +47,17 @@
         </if>
         <if test="req.status != null">
             AND sw.status = #{req.status}
+        </if>
+        <if test="req.createTime != null">
+            <if test="req.createTime.length == 2 and req.createTime[0] != null and req.createTime[1] != null">
+                AND sw.create_time BETWEEN #{req.createTime[0]} AND #{req.createTime[1]}
+            </if>
+            <if test="req.createTime.length == 1 and req.createTime[0] != null">
+                AND sw.create_time &gt;= #{req.createTime[0]}
+            </if>
+            <if test="req.createTime.length == 1 and req.createTime[1] != null">
+                AND sw.create_time &lt;= #{req.createTime[1]}
+            </if>
         </if>
     </select>
 

@@ -28,6 +28,9 @@ public class OrderPageReqVO extends PageParam {
     @Schema(description = "客户/供应商id", example = "李四")
     private Long clientId;
 
+    @Schema(description = "业务员id", example = "李四")
+    private Long userId;
+
     @Schema(description = "备注")
     private String remarks;
 

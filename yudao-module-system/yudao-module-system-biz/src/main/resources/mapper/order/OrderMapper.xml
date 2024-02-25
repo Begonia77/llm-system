@@ -47,7 +47,7 @@
         left join system_users as su on so.user_id = su.id
         WHERE so.deleted = 0
         <if test="req.orderNumber != null">
-            AND so.order_number = #{req.orderNumber}
+            AND so.order_number like concat('%', #{req.orderNumber}, '%')
         </if>
         <if test="req.warehouseId != null">
             AND so.warehouse_id = #{req.warehouseId}
@@ -58,6 +58,9 @@
         <if test="req.clientId != null">
             AND so.client_id = #{req.clientId}
         </if>
+        <if test="req.userId != null">
+            AND so.user_id = #{req.userId}
+        </if>
         <if test="req.remarks != null">
             AND so.remarks like concat('%', #{req.remarks}, '%')
         </if>
@@ -66,7 +69,7 @@
         </if>
         <if test="req.createTime != null">
             <if test="req.createTime.length == 2 and req.createTime[0] != null and req.createTime[1] != null">
-                AND so.create_time BETWEEN #{req.createTime[0]} AND #1
+                AND so.create_time BETWEEN #{req.createTime[0]} AND #{req.createTime[1]}
             </if>
             <if test="req.createTime.length == 1 and req.createTime[0] != null">
                 AND so.create_time &gt;= #{req.createTime[0]}

@@ -20,8 +20,8 @@ public interface ProductsMapper extends BaseMapperX<ProductsDO> {
     default PageResult<ProductsDO> selectPage(ProductsPageReqVO reqVO) {
         return selectPage(reqVO, new LambdaQueryWrapperX<ProductsDO>()
                 .likeIfPresent(ProductsDO::getName, reqVO.getName())
-                .eqIfPresent(ProductsDO::getCategory, reqVO.getCategory())
-                .eqIfPresent(ProductsDO::getBrand, reqVO.getBrand())
+                .likeIfPresent(ProductsDO::getCategory, reqVO.getCategory())
+                .likeIfPresent(ProductsDO::getBrand, reqVO.getBrand())
                 .eqIfPresent(ProductsDO::getStatus, reqVO.getStatus())
                 .betweenIfPresent(ProductsDO::getCreateTime, reqVO.getCreateTime())
                 .orderByDesc(ProductsDO::getId));
