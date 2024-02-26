@@ -64,5 +64,10 @@ public class WarehouseDO extends BaseDO {
      * 枚举 {@link TODO common_status 对应的类}
      */
     private Integer status;
+    /**
+     * 库存
+     */
+    @TableField(exist = false)
+    private Integer inventory;
 
 }
