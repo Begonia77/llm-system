@@ -38,4 +38,9 @@
         AND soi.order_id = #{req.orderId}
     </select>
 
+    <select id="deleteByOrderId" resultMap="orderItemMap">
+        update system_order_item
+        set deleted = 1
+        WHERE order_id = #{id}
+    </select>
 </mapper>

@@ -8,6 +8,8 @@ import org.springframework.validation.annotation.Validated;
 import cn.iocoder.yudao.module.system.controller.admin.order.vo.*;
 import cn.iocoder.yudao.module.system.dal.dataobject.order.OrderDO;
 import cn.iocoder.yudao.module.system.dal.dataobject.orderitem.OrderItemDO;
+import cn.iocoder.yudao.module.system.dal.dataobject.warehouse.WarehouseDO;
+import cn.iocoder.yudao.module.system.dal.mysql.warehouse.WarehouseMapper;
 import cn.iocoder.yudao.framework.common.pojo.PageResult;
 import cn.iocoder.yudao.framework.common.util.object.BeanUtils;
 
@@ -29,10 +31,24 @@ public class OrderServiceImpl implements OrderService {
     @Resource
     private OrderMapper orderMapper;
     @Resource
+    private WarehouseMapper warehouseMapper;
+
+    @Resource
     private OrderItemMapper orderItemMapper;
 
     @Override
     public Long createOrder(OrderSaveReqVO createReqVO) {
+        int totalInventory = createReqVO.getOrderItems().stream().mapToInt(OrderItemSaveReqVO::getQuantity).sum();
+        String orderType = createReqVO.getType();
+        WarehouseDO warehouse = warehouseMapper.selectById(createReqVO.getWarehouseId());
+        int currentInventory = warehouse.getInventory();
+
+        if (orderType.equals("1") && totalInventory + currentInventory > warehouse.getMaxInventory()) {
+            throw exception(WAREHOUSE_INVENTORY_EXCEED_MAX);
+        } else if (orderType.equals("2") && totalInventory > currentInventory) {
+            throw exception(WAREHOUSE_INVENTORY_NOT_ENOUGH);
+        }
+
         // 插入
         OrderDO order = BeanUtils.toBean(createReqVO, OrderDO.class);
         orderMapper.insert(order);
@@ -61,6 +77,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void deleteOrder(Long id) {
+        // 在删除订单之前，先删除订单项
+        orderItemMapper.deleteByOrderId(id);
         // 校验存在
         validateOrderExists(id);
         // 删除

@@ -182,6 +182,8 @@ public interface ErrorCodeConstants {
 
     // ========== 订单 1-002-032-000 ==========
     ErrorCode ORDER_NOT_EXISTS = new ErrorCode(1_002_032_000, "订单不存在");
+    ErrorCode WAREHOUSE_INVENTORY_EXCEED_MAX = new ErrorCode(1_002_032_001, "仓库库存超过最大库存");
+    ErrorCode WAREHOUSE_INVENTORY_NOT_ENOUGH = new ErrorCode(1_002_032_002, "仓库库存不足");
 
     // ========== 订单项 1-002-033-000 ==========
     ErrorCode ORDER_ITEM_NOT_EXISTS = new ErrorCode(1_002_033_000, "订单项不存在");

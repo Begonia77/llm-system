@@ -6,6 +6,7 @@ import cn.iocoder.yudao.framework.common.pojo.PageResult;
 import cn.iocoder.yudao.framework.mybatis.core.query.LambdaQueryWrapperX;
 import cn.iocoder.yudao.framework.mybatis.core.mapper.BaseMapperX;
 import cn.iocoder.yudao.module.system.dal.dataobject.orderitem.OrderItemDO;
+import cn.iocoder.yudao.module.system.dal.dataobject.warehouse.WarehouseDO;
 import org.apache.ibatis.annotations.Mapper;
 import cn.iocoder.yudao.framework.mybatis.core.util.MyBatisUtils;
 import cn.iocoder.yudao.module.system.controller.admin.orderitem.vo.*;
@@ -27,6 +28,8 @@ public interface OrderItemMapper extends BaseMapperX<OrderItemDO> {
 //    }
 
     IPage<OrderItemDO> selectOrderItemPage(IPage<OrderItemDO> page, @Param("req") OrderItemPageReqVO reqVO);
+
+    OrderItemDO deleteByOrderId(@Param("id") Long id);
 
     default PageResult<OrderItemDO> selectPage(OrderItemPageReqVO reqVO) {
         IPage<OrderItemDO> page = MyBatisUtils.buildPage(reqVO);

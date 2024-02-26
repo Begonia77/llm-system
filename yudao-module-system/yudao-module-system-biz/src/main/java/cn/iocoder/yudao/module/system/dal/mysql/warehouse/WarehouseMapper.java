@@ -28,6 +28,8 @@ public interface WarehouseMapper extends BaseMapperX<WarehouseDO> {
 //    }
     IPage<WarehouseDO> selectWarehousePage(IPage<WarehouseDO> page, @Param("req") WarehousePageReqVO reqVO);
 
+    WarehouseDO selectById(@Param("id") Long id);
+
     default PageResult<WarehouseDO> selectPage(WarehousePageReqVO reqVO) {
         IPage<WarehouseDO> page = MyBatisUtils.buildPage(reqVO);
         return new PageResult<>(selectWarehousePage(page, reqVO).getRecords(), page.getTotal());

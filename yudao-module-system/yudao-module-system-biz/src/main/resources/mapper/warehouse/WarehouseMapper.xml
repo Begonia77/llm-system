@@ -34,10 +34,10 @@
         sw.remarks,
         sw.status,
         (select
-        sum(CASE WHEN so.type = 1 THEN soi.quantity ELSE -soi.quantity END)
-        from system_order so
-        left join system_order_item as soi on so.id = soi.order_id
-        where so.warehouse_id = sw.id
+            ifnull(sum(CASE WHEN so.type = 1 THEN soi.quantity ELSE -soi.quantity END), 0)
+            from system_order so
+            left join system_order_item as soi on so.id = soi.order_id
+            where so.warehouse_id = sw.id
         ) as inventory,
         sw.create_time
         from system_warehouse as sw
@@ -68,4 +68,26 @@
         </if>
     </select>
 
+    <select id="selectById" resultMap="warehouseMap">
+        select
+        sw.id,
+        sw.name,
+        sw.type,
+        sw.address,
+        sw.user_id,
+        su.nickname as user_nickname,
+        sw.max_inventory,
+        sw.remarks,
+        sw.status,
+        (select
+            ifnull(sum(CASE WHEN so.type = 1 THEN soi.quantity ELSE -soi.quantity END), 0)
+            from system_order so
+            left join system_order_item as soi on so.id = soi.order_id
+            where so.warehouse_id = sw.id
+        ) as inventory,
+        sw.create_time
+        from system_warehouse as sw
+        left join system_users as su on sw.user_id = su.id
+        WHERE sw.deleted = 0 and sw.id = #{id}
+    </select>
 </mapper>
