@@ -8,5 +8,64 @@
         代码生成器暂时只生成 Mapper XML 文件本身，更多推荐 MybatisX 快速开发插件来生成查询。
         文档可见：https://www.iocoder.cn/MyBatis/x-plugins/
      -->
+    <resultMap id="productsMap" type="cn.iocoder.yudao.module.system.dal.dataobject.products.ProductsDO">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="category" property="category" />
+        <result column="brand" property="brand" />
+        <result column="description" property="description" />
+        <result column="image_url" property="imageUrl" />
+        <result column="purchase_price" property="purchasePrice" />
+        <result column="sale_price" property="salePrice" />
+        <result column="remarks" property="remarks" />
+        <result column="status" property="status" />
+        <result column="inventory" property="inventory" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
 
+    <select id="selectProductsPage" resultMap="productsMap">
+        select
+        sp.id,
+        sp.name,
+        sp.category,
+        sp.brand,
+        sp.description,
+        sp.image_url,
+        sp.purchase_price,
+        sp.sale_price,
+        sp.remarks,
+        sp.status,
+        (select
+            sum(CASE WHEN so.type = 1 THEN soi.quantity ELSE -soi.quantity END)
+            from system_order so
+            INNER JOIN system_order_item as soi on so.id = soi.order_id
+            where soi.product_id = sp.id
+        ) as inventory,
+        sp.create_time
+        from system_products as sp
+        WHERE sp.deleted = 0
+        <if test="req.name != null">
+            AND sp.name like concat('%', #{req.name}, '%')
+        </if>
+        <if test="req.category != null">
+            AND sp.category like concat('%', #{req.category}, '%')
+        </if>
+        <if test="req.brand != null">
+            AND sp.brand like concat('%', #{req.brand}, '%')
+        </if>
+        <if test="req.status != null">
+            AND sp.status = #{req.status}
+        </if>
+        <if test="req.createTime != null">
+            <if test="req.createTime.length == 2 and req.createTime[0] != null and req.createTime[1] != null">
+                AND sp.create_time BETWEEN #{req.createTime[0]} AND #{req.createTime[1]}
+            </if>
+            <if test="req.createTime.length == 1 and req.createTime[0] != null">
+                AND sp.create_time &gt;= #{req.createTime[0]}
+            </if>
+            <if test="req.createTime.length == 1 and req.createTime[1] != null">
+                AND sp.create_time &lt;= #{req.createTime[1]}
+            </if>
+        </if>
+    </select>
 </mapper>

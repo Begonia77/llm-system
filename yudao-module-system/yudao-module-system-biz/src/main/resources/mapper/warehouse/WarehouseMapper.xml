@@ -34,7 +34,7 @@
         sw.remarks,
         sw.status,
         (select
-        sum(CASE WHEN so.type = 2 THEN soi.quantity ELSE -soi.quantity END)
+        sum(CASE WHEN so.type = 1 THEN soi.quantity ELSE -soi.quantity END)
         from system_order so
         left join system_order_item as soi on so.id = soi.order_id
         where so.warehouse_id = sw.id

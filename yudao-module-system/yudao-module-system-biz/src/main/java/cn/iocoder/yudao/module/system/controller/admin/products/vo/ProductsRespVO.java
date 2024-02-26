@@ -57,6 +57,10 @@ public class ProductsRespVO {
     @DictFormat("common_status") // TODO 代码优化：建议设置到对应的 DictTypeConstants 枚举类中
     private Integer status;
 
+    @Schema(description = "库存", requiredMode = Schema.RequiredMode.REQUIRED, example = "1000")
+    @ExcelProperty("库存")
+    private Integer inventory;
+
     @Schema(description = "创建时间", requiredMode = Schema.RequiredMode.REQUIRED)
     @ExcelProperty("创建时间")
     private LocalDateTime createTime;
