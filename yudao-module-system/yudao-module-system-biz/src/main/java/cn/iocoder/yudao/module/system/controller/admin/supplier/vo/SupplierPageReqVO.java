@@ -1,4 +1,4 @@
-package cn.iocoder.yudao.module.system.controller.admin.client.vo;
+package cn.iocoder.yudao.module.system.controller.admin.supplier.vo;
 
 import lombok.*;
 import java.util.*;
@@ -9,17 +9,20 @@ import java.time.LocalDateTime;
 
 import static cn.iocoder.yudao.framework.common.util.date.DateUtils.FORMAT_YEAR_MONTH_DAY_HOUR_MINUTE_SECOND;
 
-@Schema(description = "管理后台 - 客户分页 Request VO")
+@Schema(description = "管理后台 - 供应商分页 Request VO")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class ClientPageReqVO extends PageParam {
+public class SupplierPageReqVO extends PageParam {
 
     @Schema(description = "联系人", example = "王五")
     private String name;
 
     @Schema(description = "联系电话", example = "13185746375")
     private String mobile;
+
+    @Schema(description = "公司名称", example = "王五有限公司")
+    private String companyName;
 
     @Schema(description = "状态", example = "1")
     private String status;

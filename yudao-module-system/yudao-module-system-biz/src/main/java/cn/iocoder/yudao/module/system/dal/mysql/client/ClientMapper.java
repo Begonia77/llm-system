@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Mapper;
 import cn.iocoder.yudao.module.system.controller.admin.client.vo.*;
 
 /**
- * 供应商/客户 Mapper
+ * 客户 Mapper
  *
  * @author Begonia
  */
@@ -21,7 +21,6 @@ public interface ClientMapper extends BaseMapperX<ClientDO> {
         return selectPage(reqVO, new LambdaQueryWrapperX<ClientDO>()
                 .likeIfPresent(ClientDO::getName, reqVO.getName())
                 .likeIfPresent(ClientDO::getMobile, reqVO.getMobile())
-                // .likeIfPresent(ClientDO::getCompanyName, reqVO.getCompanyName())
                 .eqIfPresent(ClientDO::getStatus, reqVO.getStatus())
                 .betweenIfPresent(ClientDO::getCreateTime, reqVO.getCreateTime())
                 .orderByDesc(ClientDO::getId));

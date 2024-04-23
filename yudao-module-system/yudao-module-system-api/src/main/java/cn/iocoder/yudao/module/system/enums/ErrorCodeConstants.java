@@ -174,23 +174,32 @@ public interface ErrorCodeConstants {
     // ========== 仓库 1-002-029-000 ==========
     ErrorCode WAREHOUSE_NOT_EXISTS = new ErrorCode(1_002_029_000, "仓库不存在");
 
-    // ========== 供应商/客户 1-002-030-000 ==========
-    ErrorCode CLIENT_NOT_EXISTS = new ErrorCode(1_002_030_000, "供应商/客户不存在");
+    // ========== 客户 1-002-030-000 ==========
+    ErrorCode CLIENT_NOT_EXISTS = new ErrorCode(1_002_030_000, "客户不存在");
 
     // ========== 商品 1-002-031-000 ==========
     ErrorCode COMMODITY_NOT_EXISTS = new ErrorCode(1_002_031_000, "商品不存在");
 
-    // ========== 订单 1-002-032-000 ==========
-    ErrorCode ORDER_NOT_EXISTS = new ErrorCode(1_002_032_000, "订单不存在");
-    ErrorCode WAREHOUSE_INVENTORY_EXCEED_MAX = new ErrorCode(1_002_032_001, "仓库库存超过最大库存");
-    ErrorCode WAREHOUSE_INVENTORY_NOT_ENOUGH = new ErrorCode(1_002_032_002, "仓库库存不足");
+    // ========== 销售订单 1-002-032-000 ==========
+    ErrorCode SELL_ORDER_NOT_EXISTS = new ErrorCode(1_002_032_000, "销售订单不存在");
+    ErrorCode WAREHOUSE_INVENTORY_NOT_ENOUGH = new ErrorCode(1_002_032_001, "仓库库存不足");
 
-    // ========== 订单项 1-002-033-000 ==========
-    ErrorCode ORDER_ITEM_NOT_EXISTS = new ErrorCode(1_002_033_000, "订单项不存在");
+    // ========== 销售订单项 1-002-033-000 ==========
+    ErrorCode SELL_ORDER_ITEM_NOT_EXISTS = new ErrorCode(1_002_033_000, "销售订单项不存在");
 
     // ========== 分类 1-002-034-000 ==========
     ErrorCode CATEGORY_NOT_EXISTS = new ErrorCode(1_002_034_000, "分类不存在");
 
     // ========== 品牌 1-002-035-000 ==========
     ErrorCode BRAND_NOT_EXISTS = new ErrorCode(1_002_035_000, "品牌不存在");
+
+    // ========== 供应商 1-002-036-000 ==========
+    ErrorCode SUPPLIER_NOT_EXISTS = new ErrorCode(1_002_036_000, "供应商不存在");
+
+    // ========== 采购订单 1-002-037-000 ==========
+    ErrorCode PURCHASE_ORDER_NOT_EXISTS = new ErrorCode(1_002_037_000, "采购订单不存在");
+    ErrorCode WAREHOUSE_INVENTORY_EXCEED_MAX = new ErrorCode(1_002_037_001, "仓库库存超过最大库存");
+
+    // ========== 采购订单项 1-002-038-000 ==========
+    ErrorCode PURCHASE_ORDER_ITEM_NOT_EXISTS = new ErrorCode(1_002_038_000, "采购订单项不存在");
 }

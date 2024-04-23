@@ -57,7 +57,7 @@ public class OrderItemServiceImpl implements OrderItemService {
 
     private void validateOrderItemExists(Long id) {
         if (orderItemMapper.selectById(id) == null) {
-            throw exception(ORDER_ITEM_NOT_EXISTS);
+            throw exception(SELL_ORDER_ITEM_NOT_EXISTS);
         }
     }
 

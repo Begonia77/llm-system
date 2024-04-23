@@ -1,4 +1,4 @@
-package cn.iocoder.yudao.module.system.controller.admin.client.vo;
+package cn.iocoder.yudao.module.system.controller.admin.supplier.vo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
@@ -10,13 +10,13 @@ import com.alibaba.excel.annotation.*;
 import cn.iocoder.yudao.framework.excel.core.annotations.DictFormat;
 import cn.iocoder.yudao.framework.excel.core.convert.DictConvert;
 
-@Schema(description = "管理后台 - 客户 Response VO")
+@Schema(description = "管理后台 - 供应商 Response VO")
 @Data
 @ExcelIgnoreUnannotated
-public class ClientRespVO {
+public class SupplierRespVO {
 
-    @Schema(description = "客户id", requiredMode = Schema.RequiredMode.REQUIRED, example = "1933")
-    @ExcelProperty("客户id")
+    @Schema(description = "供应商id", requiredMode = Schema.RequiredMode.REQUIRED, example = "1933")
+    @ExcelProperty("供应商id")
     private Long id;
 
     @Schema(description = "联系人", requiredMode = Schema.RequiredMode.REQUIRED, example = "王五")
@@ -26,6 +26,10 @@ public class ClientRespVO {
     @Schema(description = "联系电话", requiredMode = Schema.RequiredMode.REQUIRED, example = "13185746375")
     @ExcelProperty("联系电话")
     private String mobile;
+
+    @Schema(description = "公司名称", example = "王五有限公司")
+    @ExcelProperty("公司名称")
+    private String companyName;
 
     @Schema(description = "电子邮箱")
     @ExcelProperty("电子邮箱")

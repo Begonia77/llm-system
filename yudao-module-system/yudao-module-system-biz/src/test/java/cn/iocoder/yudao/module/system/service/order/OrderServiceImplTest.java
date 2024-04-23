@@ -79,7 +79,7 @@ public class OrderServiceImplTest extends BaseDbUnitTest {
         OrderSaveReqVO updateReqVO = randomPojo(OrderSaveReqVO.class);
 
         // 调用, 并断言异常
-        assertServiceException(() -> orderService.updateOrder(updateReqVO), ORDER_NOT_EXISTS);
+        assertServiceException(() -> orderService.updateOrder(updateReqVO), SELL_ORDER_NOT_EXISTS);
     }
 
     @Test
@@ -102,7 +102,7 @@ public class OrderServiceImplTest extends BaseDbUnitTest {
         Long id = randomLongId();
 
         // 调用, 并断言异常
-        assertServiceException(() -> orderService.deleteOrder(id), ORDER_NOT_EXISTS);
+        assertServiceException(() -> orderService.deleteOrder(id), SELL_ORDER_NOT_EXISTS);
     }
 
     @Test

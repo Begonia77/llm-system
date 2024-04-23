@@ -16,7 +16,7 @@ import static cn.iocoder.yudao.framework.common.exception.util.ServiceExceptionU
 import static cn.iocoder.yudao.module.system.enums.ErrorCodeConstants.*;
 
 /**
- * 供应商/客户 Service 实现类
+ * 客户 Service 实现类
  *
  * @author Begonia
  */
