@@ -19,11 +19,11 @@ public class CommoditySaveReqVO {
     private String name;
 
     @Schema(description = "商品分类", requiredMode = Schema.RequiredMode.REQUIRED)
-    @NotEmpty(message = "商品分类不能为空")
+    @NotNull(message = "商品分类不能为空")
     private Long categoryId;
 
     @Schema(description = "品牌", requiredMode = Schema.RequiredMode.REQUIRED)
-    @NotEmpty(message = "品牌不能为空")
+    @NotNull(message = "品牌不能为空")
     private Long brandId;
 
     @Schema(description = "商品规格", example = "大")
