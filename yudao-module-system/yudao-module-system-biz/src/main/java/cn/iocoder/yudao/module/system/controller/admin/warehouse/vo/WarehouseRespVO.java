@@ -31,7 +31,7 @@ public class WarehouseRespVO {
 
     @Schema(description = "仓库负责人id", requiredMode = Schema.RequiredMode.REQUIRED, example = "22")
     @ExcelProperty("仓库负责人id")
-    private Long userId;
+    private Long staffId;
 
     @Schema(description = "仓库负责人名称")
     @ExcelProperty("仓库负责人名称")

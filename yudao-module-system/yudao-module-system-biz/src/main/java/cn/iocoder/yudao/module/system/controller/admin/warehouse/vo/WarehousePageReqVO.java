@@ -1,7 +1,6 @@
 package cn.iocoder.yudao.module.system.controller.admin.warehouse.vo;
 
 import lombok.*;
-import java.util.*;
 import io.swagger.v3.oas.annotations.media.Schema;
 import cn.iocoder.yudao.framework.common.pojo.PageParam;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -22,7 +21,7 @@ public class WarehousePageReqVO extends PageParam {
     private String type;
 
     @Schema(description = "仓库负责人id", example = "11")
-    private Long userId;
+    private Long staffId;
 
     @Schema(description = "库存上限", example = "1000")
     private Integer maxInventory;

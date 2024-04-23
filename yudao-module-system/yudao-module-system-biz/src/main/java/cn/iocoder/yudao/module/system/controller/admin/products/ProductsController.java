@@ -25,9 +25,7 @@ import cn.iocoder.yudao.framework.operatelog.core.annotations.OperateLog;
 import static cn.iocoder.yudao.framework.operatelog.core.enums.OperateTypeEnum.*;
 
 import cn.iocoder.yudao.module.system.controller.admin.products.vo.*;
-import cn.iocoder.yudao.module.system.controller.admin.warehouse.vo.WarehouseSimpleRespVO;
 import cn.iocoder.yudao.module.system.dal.dataobject.products.ProductsDO;
-import cn.iocoder.yudao.module.system.dal.dataobject.warehouse.WarehouseDO;
 import cn.iocoder.yudao.module.system.service.products.ProductsService;
 
 @Tag(name = "管理后台 - 产品")

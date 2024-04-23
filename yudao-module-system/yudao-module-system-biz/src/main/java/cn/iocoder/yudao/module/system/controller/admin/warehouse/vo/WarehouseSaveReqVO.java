@@ -2,9 +2,7 @@ package cn.iocoder.yudao.module.system.controller.admin.warehouse.vo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
-import java.util.*;
 import javax.validation.constraints.*;
-import java.util.*;
 
 @Schema(description = "管理后台 - 仓库新增/修改 Request VO")
 @Data
@@ -26,7 +24,7 @@ public class WarehouseSaveReqVO {
 
     @Schema(description = "仓库负责人id", requiredMode = Schema.RequiredMode.REQUIRED, example = "22")
     @NotNull(message = "仓库负责人id不能为空")
-    private Long userId;
+    private Long staffId;
 
     @Schema(description = "库存上限", requiredMode = Schema.RequiredMode.REQUIRED, example = "1000")
     @NotNull(message = "库存上限不能为空")

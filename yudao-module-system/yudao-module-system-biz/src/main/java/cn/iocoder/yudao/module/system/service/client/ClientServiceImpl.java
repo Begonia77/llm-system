@@ -3,14 +3,11 @@ package cn.iocoder.yudao.module.system.service.client;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import cn.iocoder.yudao.module.system.controller.admin.client.vo.*;
 import cn.iocoder.yudao.module.system.dal.dataobject.client.ClientDO;
-import cn.iocoder.yudao.module.system.dal.dataobject.warehouse.WarehouseDO;
 import cn.iocoder.yudao.framework.common.pojo.PageResult;
-import cn.iocoder.yudao.framework.common.pojo.PageParam;
 import cn.iocoder.yudao.framework.common.util.object.BeanUtils;
 
 import cn.iocoder.yudao.module.system.dal.mysql.client.ClientMapper;

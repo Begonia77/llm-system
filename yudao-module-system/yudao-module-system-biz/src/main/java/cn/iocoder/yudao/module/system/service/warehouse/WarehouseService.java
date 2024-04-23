@@ -5,7 +5,6 @@ import javax.validation.*;
 import cn.iocoder.yudao.module.system.controller.admin.warehouse.vo.*;
 import cn.iocoder.yudao.module.system.dal.dataobject.warehouse.WarehouseDO;
 import cn.iocoder.yudao.framework.common.pojo.PageResult;
-import cn.iocoder.yudao.framework.common.pojo.PageParam;
 
 /**
  * 仓库 Service 接口

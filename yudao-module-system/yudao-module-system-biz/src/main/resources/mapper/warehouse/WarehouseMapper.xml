@@ -13,7 +13,7 @@
         <result column="name" property="name" />
         <result column="type" property="type" />
         <result column="address" property="address" />
-        <result column="user_id" property="userId" />
+        <result column="staff_id" property="staffId" />
         <result column="user_nickname" property="userNickname" />
         <result column="max_inventory" property="maxInventory" />
         <result column="remarks" property="remarks" />
@@ -28,10 +28,10 @@
         sw.name,
         sw.type,
         sw.address,
-        sw.user_id,
+        sw.staff_id,
         su.nickname as user_nickname,
         sw.max_inventory,
-        sw.remarks,
+        sw.remark,
         sw.status,
         (select
             ifnull(sum(CASE WHEN so.type = 1 THEN soi.quantity ELSE -soi.quantity END), 0)
@@ -40,8 +40,8 @@
             where so.warehouse_id = sw.id
         ) as inventory,
         sw.create_time
-        from system_warehouse as sw
-        left join system_users as su on sw.user_id = su.id
+        from warehouse as sw
+        left join system_users as su on sw.staff_id = su.id
         WHERE sw.deleted = 0
         <if test="req.name != null">
             AND sw.name like concat('%', #{req.name}, '%')
@@ -49,8 +49,8 @@
         <if test="req.type != null">
             AND sw.type = #{req.type}
         </if>
-        <if test="req.userId != null">
-            AND sw.user_id = #{req.userId}
+        <if test="req.staffId != null">
+            AND sw.staff_id = #{req.staffId}
         </if>
         <if test="req.status != null">
             AND sw.status = #{req.status}
@@ -74,10 +74,10 @@
         sw.name,
         sw.type,
         sw.address,
-        sw.user_id,
+        sw.staff_id,
         su.nickname as user_nickname,
         sw.max_inventory,
-        sw.remarks,
+        sw.remark,
         sw.status,
         (select
             ifnull(sum(CASE WHEN so.type = 1 THEN soi.quantity ELSE -soi.quantity END), 0)
@@ -86,8 +86,8 @@
             where so.warehouse_id = sw.id
         ) as inventory,
         sw.create_time
-        from system_warehouse as sw
-        left join system_users as su on sw.user_id = su.id
+        from warehouse as sw
+        left join system_users as su on sw.staff_id = su.id
         WHERE sw.deleted = 0 and sw.id = #{id}
     </select>
 </mapper>

@@ -13,7 +13,6 @@ import cn.iocoder.yudao.module.system.dal.dataobject.warehouse.WarehouseDO;
 import cn.iocoder.yudao.module.system.dal.mysql.warehouse.WarehouseMapper;
 import cn.iocoder.yudao.framework.common.pojo.PageResult;
 
-import javax.annotation.Resource;
 import org.springframework.context.annotation.Import;
 import java.util.*;
 import java.time.LocalDateTime;

@@ -4,9 +4,7 @@ import java.util.*;
 import javax.validation.*;
 import cn.iocoder.yudao.module.system.controller.admin.products.vo.*;
 import cn.iocoder.yudao.module.system.dal.dataobject.products.ProductsDO;
-import cn.iocoder.yudao.module.system.dal.dataobject.warehouse.WarehouseDO;
 import cn.iocoder.yudao.framework.common.pojo.PageResult;
-import cn.iocoder.yudao.framework.common.pojo.PageParam;
 
 /**
  * 产品 Service 接口

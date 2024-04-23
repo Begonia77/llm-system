@@ -1,9 +1,6 @@
 package cn.iocoder.yudao.module.system.dal.dataobject.warehouse;
 
 import lombok.*;
-import java.util.*;
-import java.time.LocalDateTime;
-import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.iocoder.yudao.framework.mybatis.core.dataobject.BaseDO;
 
@@ -12,8 +9,8 @@ import cn.iocoder.yudao.framework.mybatis.core.dataobject.BaseDO;
  *
  * @author Begonia
  */
-@TableName("system_warehouse")
-@KeySequence("system_warehouse_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库，可不写。
+@TableName("warehouse")
+@KeySequence("warehouse_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库，可不写。
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
@@ -44,7 +41,7 @@ public class WarehouseDO extends BaseDO {
     /**
      * 仓库负责人id
      */
-    private Long userId;
+    private Long staffId;
     /**
      * 仓库负责人名称
      */
