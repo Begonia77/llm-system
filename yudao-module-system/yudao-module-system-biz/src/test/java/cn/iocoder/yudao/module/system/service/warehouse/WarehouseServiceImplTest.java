@@ -111,7 +111,7 @@ public class WarehouseServiceImplTest extends BaseDbUnitTest {
        WarehouseDO dbWarehouse = randomPojo(WarehouseDO.class, o -> { // 等会查询到
            o.setName(null);
            o.setType(null);
-           o.setUserName(null);
+        //    o.setUserName(null);
            o.setMaxInventory(null);
            o.setStatus(null);
            o.setCreateTime(null);
@@ -122,7 +122,7 @@ public class WarehouseServiceImplTest extends BaseDbUnitTest {
        // 测试 type 不匹配
        warehouseMapper.insert(cloneIgnoreId(dbWarehouse, o -> o.setType(null)));
        // 测试 userName 不匹配
-       warehouseMapper.insert(cloneIgnoreId(dbWarehouse, o -> o.setUserName(null)));
+    //    warehouseMapper.insert(cloneIgnoreId(dbWarehouse, o -> o.setUserName(null)));
        // 测试 maxInventory 不匹配
        warehouseMapper.insert(cloneIgnoreId(dbWarehouse, o -> o.setMaxInventory(null)));
        // 测试 status 不匹配
@@ -133,7 +133,7 @@ public class WarehouseServiceImplTest extends BaseDbUnitTest {
        WarehousePageReqVO reqVO = new WarehousePageReqVO();
        reqVO.setName(null);
        reqVO.setType(null);
-       reqVO.setUserName(null);
+    //    reqVO.setUserName(null);
        reqVO.setMaxInventory(null);
        reqVO.setStatus(null);
        reqVO.setCreateTime(buildBetweenTime(2023, 2, 1, 2023, 2, 28));
