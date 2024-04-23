@@ -112,7 +112,7 @@ public class ClientServiceImplTest extends BaseDbUnitTest {
        ClientDO dbClient = randomPojo(ClientDO.class, o -> { // 等会查询到
            o.setName(null);
            o.setMobile(null);
-           o.setCompanyName(null);
+        //    o.setCompanyName(null);
            o.setStatus(null);
            o.setCreateTime(null);
        });
@@ -122,7 +122,7 @@ public class ClientServiceImplTest extends BaseDbUnitTest {
        // 测试 mobile 不匹配
        clientMapper.insert(cloneIgnoreId(dbClient, o -> o.setMobile(null)));
        // 测试 companyName 不匹配
-       clientMapper.insert(cloneIgnoreId(dbClient, o -> o.setCompanyName(null)));
+    //    clientMapper.insert(cloneIgnoreId(dbClient, o -> o.setCompanyName(null)));
        // 测试 status 不匹配
        clientMapper.insert(cloneIgnoreId(dbClient, o -> o.setStatus(null)));
        // 测试 createTime 不匹配
@@ -131,7 +131,7 @@ public class ClientServiceImplTest extends BaseDbUnitTest {
        ClientPageReqVO reqVO = new ClientPageReqVO();
        reqVO.setName(null);
        reqVO.setMobile(null);
-       reqVO.setCompanyName(null);
+    //    reqVO.setCompanyName(null);
        reqVO.setStatus(null);
        reqVO.setCreateTime(buildBetweenTime(2023, 2, 1, 2023, 2, 28));
 

@@ -27,9 +27,9 @@ public class ClientRespVO {
     @ExcelProperty("联系电话")
     private String mobile;
 
-    @Schema(description = "公司名称", example = "王五有限公司")
-    @ExcelProperty("公司名称")
-    private String companyName;
+    // @Schema(description = "公司名称", example = "王五有限公司")
+    // @ExcelProperty("公司名称")
+    // private String companyName;
 
     @Schema(description = "电子邮箱")
     @ExcelProperty("电子邮箱")
@@ -37,7 +37,7 @@ public class ClientRespVO {
 
     @Schema(description = "备注")
     @ExcelProperty("备注")
-    private String remarks;
+    private String remark;
 
     @Schema(description = "状态", example = "1")
     @ExcelProperty(value = "状态", converter = DictConvert.class)

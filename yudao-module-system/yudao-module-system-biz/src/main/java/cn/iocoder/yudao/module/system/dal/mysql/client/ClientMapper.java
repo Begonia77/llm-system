@@ -21,7 +21,7 @@ public interface ClientMapper extends BaseMapperX<ClientDO> {
         return selectPage(reqVO, new LambdaQueryWrapperX<ClientDO>()
                 .likeIfPresent(ClientDO::getName, reqVO.getName())
                 .likeIfPresent(ClientDO::getMobile, reqVO.getMobile())
-                .likeIfPresent(ClientDO::getCompanyName, reqVO.getCompanyName())
+                // .likeIfPresent(ClientDO::getCompanyName, reqVO.getCompanyName())
                 .eqIfPresent(ClientDO::getStatus, reqVO.getStatus())
                 .betweenIfPresent(ClientDO::getCreateTime, reqVO.getCreateTime())
                 .orderByDesc(ClientDO::getId));

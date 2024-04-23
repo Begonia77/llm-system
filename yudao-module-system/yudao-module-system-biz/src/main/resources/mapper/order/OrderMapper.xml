@@ -42,7 +42,7 @@
         so.status,
         so.create_time
         from system_order as so
-        left join system_client as sc on so.client_id = sc.id
+        left join client as sc on so.client_id = sc.id
         left join warehouse as sw on so.warehouse_id = sw.id
         left join system_users as su on so.user_id = su.id
         WHERE so.deleted = 0
