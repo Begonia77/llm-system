@@ -55,7 +55,7 @@ public class BrandServiceImpl implements BrandService {
 
     private void validateBrandExists(Long id) {
         if (brandMapper.selectById(id) == null) {
-            throw exception(PRODUCTS_NOT_EXISTS);
+            throw exception(BRAND_NOT_EXISTS);
         }
     }
 

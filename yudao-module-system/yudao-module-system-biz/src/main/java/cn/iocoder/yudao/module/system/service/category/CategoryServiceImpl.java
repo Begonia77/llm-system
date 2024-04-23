@@ -55,7 +55,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     private void validateCategoryExists(Long id) {
         if (categoryMapper.selectById(id) == null) {
-            throw exception(PRODUCTS_NOT_EXISTS);
+            throw exception(CATEGORY_NOT_EXISTS);
         }
     }
 

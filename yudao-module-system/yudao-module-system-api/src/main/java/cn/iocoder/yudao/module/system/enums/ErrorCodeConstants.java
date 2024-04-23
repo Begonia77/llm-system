@@ -177,8 +177,8 @@ public interface ErrorCodeConstants {
     // ========== 供应商/客户 1-002-030-000 ==========
     ErrorCode CLIENT_NOT_EXISTS = new ErrorCode(1_002_030_000, "供应商/客户不存在");
 
-    // ========== 产品 1-002-031-000 ==========
-    ErrorCode PRODUCTS_NOT_EXISTS = new ErrorCode(1_002_031_000, "产品不存在");
+    // ========== 商品 1-002-031-000 ==========
+    ErrorCode COMMODITY_NOT_EXISTS = new ErrorCode(1_002_031_000, "商品不存在");
 
     // ========== 订单 1-002-032-000 ==========
     ErrorCode ORDER_NOT_EXISTS = new ErrorCode(1_002_032_000, "订单不存在");
@@ -187,4 +187,10 @@ public interface ErrorCodeConstants {
 
     // ========== 订单项 1-002-033-000 ==========
     ErrorCode ORDER_ITEM_NOT_EXISTS = new ErrorCode(1_002_033_000, "订单项不存在");
+
+    // ========== 分类 1-002-034-000 ==========
+    ErrorCode CATEGORY_NOT_EXISTS = new ErrorCode(1_002_034_000, "分类不存在");
+
+    // ========== 品牌 1-002-035-000 ==========
+    ErrorCode BRAND_NOT_EXISTS = new ErrorCode(1_002_035_000, "品牌不存在");
 }

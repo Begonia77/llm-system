@@ -1,4 +1,4 @@
-package cn.iocoder.yudao.module.system.controller.admin.products.vo;
+package cn.iocoder.yudao.module.system.controller.admin.commodity.vo;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
@@ -11,33 +11,45 @@ import com.alibaba.excel.annotation.*;
 import cn.iocoder.yudao.framework.excel.core.annotations.DictFormat;
 import cn.iocoder.yudao.framework.excel.core.convert.DictConvert;
 
-@Schema(description = "管理后台 - 产品 Response VO")
+@Schema(description = "管理后台 - 商品 Response VO")
 @Data
 @ExcelIgnoreUnannotated
-public class ProductsRespVO {
+public class CommodityRespVO {
 
-    @Schema(description = "产品id", requiredMode = Schema.RequiredMode.REQUIRED, example = "31776")
-    @ExcelProperty("产品id")
+    @Schema(description = "商品id", requiredMode = Schema.RequiredMode.REQUIRED, example = "31776")
+    @ExcelProperty("商品id")
     private Long id;
 
-    @Schema(description = "产品名称", requiredMode = Schema.RequiredMode.REQUIRED, example = "芋艿")
-    @ExcelProperty("产品名称")
+    @Schema(description = "商品名称", requiredMode = Schema.RequiredMode.REQUIRED, example = "芋艿")
+    @ExcelProperty("商品名称")
     private String name;
 
-    @Schema(description = "产品分类", requiredMode = Schema.RequiredMode.REQUIRED)
-    @ExcelProperty("产品分类")
-    private String category;
+    @Schema(description = "分类id", requiredMode = Schema.RequiredMode.REQUIRED)
+    @ExcelProperty("分类id")
+    private Long categoryId;
 
-    @Schema(description = "品牌", requiredMode = Schema.RequiredMode.REQUIRED)
-    @ExcelProperty("品牌")
-    private String brand;
+    @Schema(description = "分类名称", requiredMode = Schema.RequiredMode.REQUIRED)
+    @ExcelProperty("分类名称")
+    private String categoryName;
 
-    @Schema(description = "产品描述", example = "你猜")
-    @ExcelProperty("产品描述")
+    @Schema(description = "品牌id", requiredMode = Schema.RequiredMode.REQUIRED)
+    @ExcelProperty("品牌id")
+    private Long brandId;
+
+    @Schema(description = "品牌名称", requiredMode = Schema.RequiredMode.REQUIRED)
+    @ExcelProperty("品牌名称")
+    private String brandName;
+
+    @Schema(description = "商品规格", example = "大")
+    @ExcelProperty("商品规格")
+    private String specification;
+
+    @Schema(description = "商品描述", example = "你猜")
+    @ExcelProperty("商品描述")
     private String description;
 
-    @Schema(description = "产品图片", example = "https://www.iocoder.cn")
-    @ExcelProperty("产品图片")
+    @Schema(description = "商品图片", example = "https://www.iocoder.cn")
+    @ExcelProperty("商品图片")
     private String imageUrl;
 
     @Schema(description = "进货价", requiredMode = Schema.RequiredMode.REQUIRED, example = "24288")
@@ -50,7 +62,7 @@ public class ProductsRespVO {
 
     @Schema(description = "备注")
     @ExcelProperty("备注")
-    private String remarks;
+    private String remark;
 
     @Schema(description = "状态", requiredMode = Schema.RequiredMode.REQUIRED, example = "1")
     @ExcelProperty(value = "状态", converter = DictConvert.class)

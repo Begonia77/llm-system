@@ -1,52 +1,60 @@
-package cn.iocoder.yudao.module.system.dal.dataobject.products;
+package cn.iocoder.yudao.module.system.dal.dataobject.commodity;
 
 import lombok.*;
-import java.util.*;
 import java.math.BigDecimal;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.iocoder.yudao.framework.mybatis.core.dataobject.BaseDO;
 
 /**
- * 产品 DO
+ * 商品 DO
  *
  * @author Begonia
  */
-@TableName("system_products")
-@KeySequence("system_products_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库，可不写。
+@TableName("system_commodity")
+@KeySequence("system_commodity_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库，可不写。
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductsDO extends BaseDO {
+public class CommodityDO extends BaseDO {
 
     /**
-     * 产品id
+     * 商品id
      */
     @TableId
     private Long id;
     /**
-     * 产品名称
+     * 商品名称
      */
     private String name;
     /**
-     * 产品分类
+     * 分类id
      */
-    private String category;
+    private Long categoryId;
     /**
-     * 品牌
+     * 分类名称
      */
-    private String brand;
+    private String categoryName;
     /**
-     * 产品描述
+     * 品牌id
+     */
+    private Long brandId;
+    /**
+     * 品牌名称
+     */
+    private String brandName;
+    /**
+     * 规格
+     */
+    private String specification;
+    /**
+     * 商品描述
      */
     private String description;
     /**
-     * 产品图片
+     * 商品图片
      */
     private String imageUrl;
     /**
