@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.iocoder.yudao.module.system.dal.mysql.purchaseOrderItem.PurchaseOrderItemMapper">
+
+    <!--
+        一般情况下，尽可能使用 Mapper 进行 CRUD 增删改查即可。
+        无法满足的场景，例如说多表关联查询，才使用 XML 编写 SQL。
+        代码生成器暂时只生成 Mapper XML 文件本身，更多推荐 MybatisX 快速开发插件来生成查询。
+        文档可见：https://www.iocoder.cn/MyBatis/x-plugins/
+     -->
+    
+    <resultMap id="purchaseOrderItemMap" type="cn.iocoder.yudao.module.system.dal.dataobject.purchaseOrderItem.PurchaseOrderItemDO">
+        <id column="id" property="id" />
+        <result column="commodity_id" property="commodityId" />
+        <result column="commodity_name" property="commodityName" />
+        <result column="purchase_order_id" property="purchaseOrderId" />
+        <result column="quantity" property="quantity" />
+        <result column="price" property="price" />
+        <result column="totalAmount" property="totalAmount" />
+        <result column="remark" property="remark" />
+        <result column="status" property="status" />
+    </resultMap>
+
+    <select id="selectPurchaseOrderItemPage" resultMap="purchaseOrderItemMap">
+        select
+            poi.id,
+            poi.commodity_id,
+            sp.name as commodity_name,
+            poi.purchase_order_id,
+            poi.quantity,
+            poi.price,
+            poi.quantity * poi.price as totalAmount,
+            poi.remark,
+            poi.status
+            from purchase_order_item as poi
+            left join commodity as sp on poi.commodity_id = sp.id
+        WHERE poi.deleted = 0
+        AND poi.purchase_order_id = #{req.purchaseOrderId}
+    </select>
+
+    <select id="deleteByPurchaseOrderId" resultMap="purchaseOrderItemMap">
+        update purchase_order_item
+        set deleted = 1
+        WHERE purchase_order_id = #{id}
+    </select>
+</mapper>
