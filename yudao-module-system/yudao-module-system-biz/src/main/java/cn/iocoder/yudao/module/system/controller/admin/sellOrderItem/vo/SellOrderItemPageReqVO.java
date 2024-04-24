@@ -17,7 +17,7 @@ import static cn.iocoder.yudao.framework.common.util.date.DateUtils.FORMAT_YEAR_
 public class SellOrderItemPageReqVO extends PageParam {
 
     @Schema(description = "订单id")
-    private Number orderId;
+    private Number sellOrderId;
 
     @Schema(description = "备注")
     private String remark;
