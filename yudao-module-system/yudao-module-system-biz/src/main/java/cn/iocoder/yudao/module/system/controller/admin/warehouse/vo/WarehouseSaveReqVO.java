@@ -31,7 +31,7 @@ public class WarehouseSaveReqVO {
     private Integer maxInventory;
 
     @Schema(description = "备注", example = "0")
-    private String remarks;
+    private String remark;
 
     @Schema(description = "状态", requiredMode = Schema.RequiredMode.REQUIRED, example = "1")
     @NotNull(message = "状态不能为空")

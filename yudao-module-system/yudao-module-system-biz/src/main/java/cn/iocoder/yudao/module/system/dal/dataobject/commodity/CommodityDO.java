@@ -36,6 +36,7 @@ public class CommodityDO extends BaseDO {
     /**
      * 分类名称
      */
+    @TableField(exist = false)
     private String categoryName;
     /**
      * 品牌id
@@ -44,6 +45,7 @@ public class CommodityDO extends BaseDO {
     /**
      * 品牌名称
      */
+    @TableField(exist = false)
     private String brandName;
     /**
      * 规格
@@ -68,7 +70,7 @@ public class CommodityDO extends BaseDO {
     /**
      * 备注
      */
-    private String remarks;
+    private String remark;
     /**
      * 状态
      *

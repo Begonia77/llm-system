@@ -55,6 +55,8 @@
                 SUM(quantity) AS total_purchase
             FROM 
                 purchase_order_item
+            WHERE
+                purchase_order_item.deleted = 0
             GROUP BY 
                 commodity_id) AS purchase
         ON 
@@ -65,6 +67,8 @@
                 SUM(quantity) AS total_sell
             FROM 
                 sell_order_item
+            WHERE
+                sell_order_item.deleted = 0
             GROUP BY 
                 commodity_id) AS sell
         ON 
@@ -74,12 +78,6 @@
         <if test="req.name != null">
             AND c.name like concat('%', #{req.name}, '%')
         </if>
-        <!-- <if test="req.category != null">
-            AND c.category like concat('%', #{req.category}, '%')
-        </if>
-        <if test="req.brand != null">
-            AND c.brand like concat('%', #{req.brand}, '%')
-        </if> -->
         <if test="req.status != null">
             AND c.status = #{req.status}
         </if>

@@ -92,7 +92,7 @@ public class CommodityController {
     }
 
     @GetMapping({"/list-all-simple", "/simple-list"})
-    @Operation(summary = "获取商品精简信息列表", description = "只包含被开启的仓库，主要用于前端的下拉选项")
+    @Operation(summary = "获取商品精简信息列表", description = "只包含被开启的商品，主要用于前端的下拉选项")
     public CommonResult<List<CommoditySimpleRespVO>> getSimpleCommodityList() {
         List<CommodityDO> list = commodityService.getAllCommodityList();
         return success(BeanUtils.toBean(list, CommoditySimpleRespVO.class));

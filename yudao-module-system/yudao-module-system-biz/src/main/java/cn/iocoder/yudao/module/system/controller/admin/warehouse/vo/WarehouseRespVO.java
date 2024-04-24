@@ -43,7 +43,7 @@ public class WarehouseRespVO {
 
     @Schema(description = "备注", example = "0")
     @ExcelProperty("备注")
-    private String remarks;
+    private String remark;
 
     @Schema(description = "状态", requiredMode = Schema.RequiredMode.REQUIRED, example = "1")
     @ExcelProperty(value = "状态", converter = DictConvert.class)

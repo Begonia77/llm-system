@@ -54,7 +54,7 @@ public class WarehouseDO extends BaseDO {
     /**
      * 备注
      */
-    private String remarks;
+    private String remark;
     /**
      * 状态
      *

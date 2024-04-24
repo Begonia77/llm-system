@@ -15,9 +15,6 @@ public class PurchaseOrderSaveReqVO {
     @Schema(description = "订单id", requiredMode = Schema.RequiredMode.REQUIRED, example = "15124")
     private Long id;
 
-    @Schema(description = "订单单号")
-    private Long orderNumber;
-
     @Schema(description = "仓库id", example = "2348")
     private Long warehouseId;
 
