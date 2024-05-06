@@ -78,15 +78,14 @@
         w.max_inventory,
         w.remark,
         w.status,
-        (select
-            ifnull(sum(CASE WHEN so.type = 1 THEN soi.quantity ELSE -soi.quantity END), 0)
-            from system_order so
-            left join system_order_item as soi on so.id = soi.order_id
-            where so.warehouse_id = w.id
-        ) as inventory,
+        COALESCE(po.purchase_quantity, 0) - COALESCE(so.sell_quantity, 0) as inventory,
         w.create_time
         from warehouse as w
         left join system_users as su on w.staff_id = su.id
+        LEFT JOIN
+            (SELECT purchase_order.warehouse_id, SUM(purchase_order_item.quantity) as purchase_quantity FROM purchase_order INNER JOIN purchase_order_item ON purchase_order.id = purchase_order_item.purchase_order_id WHERE purchase_order.deleted = 0 GROUP BY purchase_order.warehouse_id) po ON w.id = po.warehouse_id
+        LEFT JOIN
+            (SELECT sell_order.warehouse_id, SUM(sell_order_item.quantity) as sell_quantity FROM sell_order INNER JOIN sell_order_item ON sell_order.id = sell_order_item.sell_order_id WHERE sell_order.deleted = 0 GROUP BY sell_order.warehouse_id) so ON w.id = so.warehouse_id
         WHERE w.deleted = 0 and w.id = #{id}
     </select>
 </mapper>
